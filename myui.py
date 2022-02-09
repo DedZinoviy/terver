@@ -38,7 +38,6 @@ class Ui_MainWindow(object):
         self.gridLayout_2.addWidget(self.comboBox, 0, 0, 1, 1)
         self.label = QtWidgets.QLabel(self.widget)
         self.label.setText("")
-        self.label.setPixmap(QtGui.QPixmap("C:\\Users\\demon\\Desktop\\TerVer\\img/sochetaniya.png"))
         self.label.setScaledContents(False)
         self.label.setAlignment(QtCore.Qt.AlignCenter)
         self.label.setObjectName("label")

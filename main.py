@@ -9,6 +9,8 @@ class mywindow(QtWidgets.QMainWindow):
         super(mywindow, self).__init__()
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
+        pixmap = QPixmap("img/sochetaniya.png")
+        self.ui.label.setPixmap(pixmap)
         self.combinatoric = Combinatoric()
         self.ui.solve_button.clicked.connect(self.solve)
         self.ui.comboBox.currentIndexChanged.connect(self.setImg)
