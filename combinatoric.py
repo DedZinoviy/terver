@@ -4,22 +4,12 @@ class Combinatoric:
     def __init__(self):
         pass
 
-    def multiplection(self, start, finish):
-        mult = start
-        for i in range(start + 1, finish + 1, 1):
-            mult = mult * i
-        return mult
-
 
     def combinations_without_repeats(self, n, m):
-        if n == m:
-            result = n
-        else:
-            arr = [m, n-m]
-            maximum = max(arr)
-            minimum = min(arr)
-            result = self.multiplection(maximum + 1, n) // np.math.factorial(minimum)
-        
+        arr = [m, n-m]
+        maximum = max(arr)
+        minimum = min(arr)
+        result = np.prod(np.arange(maximum + 1, n + 1, 1, dtype=np.object)) // np.math.factorial(minimum)     
         return result
 
 
