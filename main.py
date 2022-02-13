@@ -10,7 +10,7 @@ class mywindow(QtWidgets.QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         pixmap = QPixmap("img/sochetaniya.png")
-        self.ui.label.setPixmap(pixmap)
+        self.ui.formula_img.setPixmap(pixmap)
         self.combinatoric = Combinatoric()
         self.ui.solve_button.clicked.connect(self.solve)
         self.ui.comboBox.currentIndexChanged.connect(self.setImg)
@@ -19,7 +19,7 @@ class mywindow(QtWidgets.QMainWindow):
         img = ["sochetaniya.png", "sochetaniya_with_repeat.png", "accomodattion_with_repeat.png"]
         selection = self.ui.comboBox.currentIndex()
         pixmap = QPixmap("img/" + img[selection])
-        self.ui.label.setPixmap(pixmap)
+        self.ui.formula_img.setPixmap(pixmap)
 
     def solve(self):
         selection = self.ui.comboBox.currentIndex()
@@ -33,7 +33,7 @@ class mywindow(QtWidgets.QMainWindow):
             result = self.combinatoric.accommodation_with_repeats(n, m)
         else:
             result = "m должно быть меньше n"
-        self.ui.result_lineEdit.setText(str(result))
+        self.ui.result_textEdit.setText(str(result))
  
 if __name__ == '__main__': 
     app = QtWidgets.QApplication([])
