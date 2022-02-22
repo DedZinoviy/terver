@@ -1,12 +1,13 @@
 import numpy as np
 
 class Combinatoric:
+    """Класс для работы с основными формулми комбинаторики"""
     def __init__(self):
         pass
 
-    
-    '''Вычислить число сочетаний без повторений'''
+     
     def combinations_without_repeats(n, m):
+        '''Вычислить число сочетаний без повторений'''
         arr = [m, n-m]     # определить основания факториалов в знаменателе
         maximum = max(arr) # определить максимум из оснований факториалов знаменателя
         minimum = min(arr) # определить минимум из оснований факториалов знаменателя
@@ -16,14 +17,19 @@ class Combinatoric:
         return result
 
 
-    '''Вычислить число сочетаний с повторениями'''
     def combinations_with_repeats(n, m):
+        '''Вычислить число сочетаний с повторениями'''
         n = n + m - 1                                            # переопределить n для перехода к формуле сочетаний
         result = Combinatoric.combinations_without_repeats(n, m) # определить число сочетаний для нового значения n
         return result
 
 
-    '''Вычислить число размещений с повторениями'''
     def accommodation_with_repeats(n, m):
+        '''Вычислить число размещений с повторениями'''
         return n**m
 
+    def accomodation_without_repeats(n, m):
+        '''Вычислить число размещений без повторений'''
+        denominator = n - m
+        result = np.prod(np.arange(denominator + 1, n + 1, 1, dtype=np.object))
+        return result
