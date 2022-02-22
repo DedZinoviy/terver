@@ -33,3 +33,23 @@ class Combinatoric:
         denominator = n - m
         result = np.prod(np.arange(denominator + 1, n + 1, 1, dtype=np.object))
         return result
+    
+    
+    def permutation_without_repeats(n):
+        '''Вычислить число перестановок без повторений'''
+        return np.math.factorial(n)  # n!
+
+    
+    def permutation_with_repeats(n, array_of_types):
+        '''Вычислить число перестановок с повторениями'''
+        maximum = max(array_of_types) # определить максимум из оснований факториалов знаменателя
+        array_of_types.remove(maximum) #Скоратить на наибольшее основание из знаменателя, исключив его из массива
+
+        # Посчитать значение знаменателя как n_1! * n_2! * n_3! *...* n_m!
+        denominator = 1
+        for value in array_of_types:
+            denominator *= np.math.factorial(value) 
+
+        # Определить число сочетаний. В числителе n!, сокращенный на факториал максимума, в знаменателе произведение факориалов  
+        result = np.prod(np.arange(maximum + 1, n + 1, 1, dtype=np.object)) // denominator
+        return result
